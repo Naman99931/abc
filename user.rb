@@ -18,9 +18,11 @@ class User
     return [] unless File.exist?('users_data.json') 
 
     users_data = JSON.parse(File.read('users_data.json'))
-    users_data.map do |u_data|
-      new(u_data['u_name'], u_data['u_id'], u_data['email'], u_data['address'], u_data['password'])
-    end
+
+    #users_data.map do |u_data|
+     # new(u_data['u_name'], u_data['u_id'], u_data['email'], u_data['address'], u_data['password'])
+    #end
+    return users_data
   end
 
   def self.save_users(users)
@@ -41,14 +43,13 @@ class User
 
   def self.authenticate(u_name, password)
     users = load_users
-    user = users.find { |u| u.u_name == u_name }
+    user = users.find { |u| u["u_name"] == u_name }
 
-
-    if user.password == password
-      true
-    else
-      false
-    end
-
+      if user == nil
+        false
+      elsif user["password"]==password
+        true
+      end
+    
   end
 end

@@ -1,5 +1,6 @@
 require 'json'
 require 'time'
+require 'prawn'
 
 class Note
   attr_accessor :title, :content, :timestamp
@@ -56,7 +57,7 @@ class Note
     note = notes.find { |n| n.title == note_title }
     return unless note
 
-    require_relative 'prawn'
+    
     Prawn::Document.generate("#{note_title}.pdf") do |pdf|
       pdf.text "Note Title: #{note.title}"
       pdf.text "Timestamp: #{note.timestamp}"

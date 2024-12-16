@@ -1,37 +1,16 @@
 [
   {
-    "u_name": "JohnDoe",
-    "u_id": 1,
-    "email": "john@example.com",
-    "address": "New York",
-    "password": "$2a$12$WwF6Azj3kt8Hs56rlS9m0u7LfKtz0rFOe8uAURnH7.QqbOX0l7LKq"
-  },
-  {
-    "u_name": "JaneDoe",
-    "u_id": 2,
-    "email": "jane@example.com",
-    "address": "Los Angeles",
-    "password": "$2a$12$WwF6Azj3kt8Hs56rlS9m0u7LfKtz0rFOe8uAURnH7.QqbOX0l7LKq"
-  },
-  {
-    "u_name": "naman",
-    "u_id": "17",
-    "email": "iswhji",
-    "address": "jiji",
-    "password": "$2a$12$ARf.w2BpriOKbxFvWd2Ng.jtVr8M9mXg7DuEvdRLMVZKVuy/LN2EG"
-  },
-  {
-    "u_name": "animash",
-    "u_id": "12",
-    "email": "animash@gmail.com",
-    "address": "indore",
-    "password": "$2a$12$BT44FPDm1e21toCA8nG50O9E518KJgGcP8V.z9sn/h5A7KGiKsrOK"
-  },
-  {
     "u_name": "Naman Jain",
     "u_id": "110",
     "email": "naman@gmail.com",
     "address": "Indore",
+    "password": "1234"
+  },
+  {
+    "u_name": "Ram",
+    "u_id": "11",
+    "email": "ram@gmail.com",
+    "address": "bhopal",
     "password": "1234"
   }
 ]

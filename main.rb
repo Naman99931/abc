@@ -70,6 +70,7 @@ def login
 end
 
 def notes_menu
+  puts ""
   puts "!!! Menu !!!"
 puts "Please select an option below : "
 puts "1. Create Note"
@@ -142,7 +143,7 @@ def update_note
     else
       puts "Failed to update note."
     end
-    notes Menu
+    notes_menu
   else
     puts "Note not found."
   end
