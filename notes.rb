@@ -4,7 +4,7 @@ require 'time'
 class Note
   attr_accessor :title, :content, :timestamp
 
-  def initialize(title, content, timestamp = Time.now.iso8601)
+  def initialize(title, content, timestamp = Time.now)
     @title = title
     @content = content
     @timestamp = timestamp
@@ -37,7 +37,7 @@ class Note
     if note
       note.title = new_title
       note.content = new_content
-      note.timestamp = Time.now.iso8601
+      note.timestamp = Time.now
       save_notes(notes)
       true
     else
@@ -56,7 +56,7 @@ class Note
     note = notes.find { |n| n.title == note_title }
     return unless note
 
-    require 'prawn'
+    require_relative 'prawn'
     Prawn::Document.generate("#{note_title}.pdf") do |pdf|
       pdf.text "Note Title: #{note.title}"
       pdf.text "Timestamp: #{note.timestamp}"

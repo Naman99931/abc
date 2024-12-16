@@ -26,5 +26,12 @@
     "email": "animash@gmail.com",
     "address": "indore",
     "password": "$2a$12$BT44FPDm1e21toCA8nG50O9E518KJgGcP8V.z9sn/h5A7KGiKsrOK"
+  },
+  {
+    "u_name": "Naman Jain",
+    "u_id": "110",
+    "email": "naman@gmail.com",
+    "address": "Indore",
+    "password": "1234"
   }
 ]

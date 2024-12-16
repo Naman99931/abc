@@ -100,6 +100,7 @@ end
 end
 
 def create_note
+  puts ""
   puts "Enter note title:"
   title = gets.chomp
   puts "Enter note content:"
@@ -112,19 +113,21 @@ def create_note
 end
 
 def view_note
+  puts ""
   notes = Note.load_notes
   if notes.empty?
     puts "No notes available."
   else
     notes.each { |note| puts "#{note.title} - #{note.timestamp} - #{note.content}"}
   end
+  notes_menu
 end
 
 def update_note
+  puts ""
   puts "Enter the title of the note you want to update:"
   title = gets.chomp
 
-  # Check if the note exists
   notes = Note.load_notes
   note = notes.find { |n| n.title == title }
 
@@ -132,33 +135,39 @@ def update_note
     puts "Enter new title:"
     new_title = gets.chomp
     puts "Enter new content:"
-    new_body = gets.chomp
+    new_content = gets.chomp
 
     if Note.update(title, new_title, new_content)
       puts "Note updated successfully!"
     else
       puts "Failed to update note."
     end
+    notes Menu
   else
     puts "Note not found."
   end
+  notes_menu
 end
 
 def delete_note
+  puts ""
   puts "Enter the title of the note you want to delete:"
   title = gets.chomp
   Note.delete(title)
   puts "Note deleted!"
+  notes_menu
 end
 
 def note_pdf
+  puts ""
   puts "Enter the title of the note to export to PDF:"
   title = gets.chomp
-  if Note.export_to_pdf(title)
+  if Note.note_pdf(title)
     puts "Note exported to PDF successfully!"
   else
     puts "Note not found!"
   end
+  notes_menu
 end
 menu
 

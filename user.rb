@@ -1,7 +1,7 @@
 
 
 require 'json'
-require 'bcrypt'
+
 
 class User
   attr_reader :u_name, :u_id, :email, :address, :password
@@ -33,8 +33,7 @@ class User
     users = load_users
     return false if users.any? { |user| user.u_name == u_name }
 
-    hashed_password = BCrypt::Password.create(password)
-    new_user = User.new(u_name, u_id, email, address, hashed_password)
+    new_user = User.new(u_name, u_id, email, address, password)
     users.push(new_user)
     save_users(users)
     true
@@ -44,10 +43,12 @@ class User
     users = load_users
     user = users.find { |u| u.u_name == u_name }
 
-    if user && BCrypt::Password.new(user.password) == password
+
+    if user.password == password
       true
     else
       false
     end
+
   end
 end
