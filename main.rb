@@ -19,7 +19,7 @@ def menu
     when 2
       login
     when 3
-      exit
+      
     else
       puts "Please enter a valid no."
       menu
@@ -117,19 +117,21 @@ end
 def view_note(u_id)
   puts ""
   notes = Note.load_notes
-  note =notes.find { |n| n.u_id == u_id}
+  note =notes.select { |n| n.u_id == u_id}
 
   if note==nil
     puts "No notes available."
   else
-     note.each{ |key| puts "#{key.@title} - #{key.@timestamp} - #{key.@content} - #{key.@u_id}"}
-#    p note
+    note.each do |key|
+     puts "#{key.title} - #{key.timestamp} - #{key.content} -#{key.u_id}"
+    end
   end
-  notes_menu(u_id)
 end
 
 def update_note(u_id)
   puts ""
+  puts "These all are your notes :"
+  view_note(u_id)
   puts "Enter the title of the note you want to update:"
   title = gets.chomp
 
@@ -142,29 +144,33 @@ def update_note(u_id)
     puts "Enter new content:"
     new_content = gets.chomp
 
-    if Note.update(title, new_title, new_content)
+    if Note.update(title, new_title, new_content,u_id)
       puts "Note updated successfully!"
     else
       puts "Failed to update note."
     end
-    notes_menu
+    notes_menu(u_id)
   else
     puts "Note not found."
   end
-  notes_menu
+  notes_menu(u_id)
 end
 
-def delete_note
+def delete_note(u_id)
   puts ""
+  puts "These all are your notes :"
+  view_note(u_id)
   puts "Enter the title of the note you want to delete:"
   title = gets.chomp
   Note.delete(title)
   puts "Note deleted!"
-  notes_menu
+  notes_menu(u_id)
 end
 
-def note_pdf
+def note_pdf(u_id)
   puts ""
+  puts "These all are your notes :"
+  view_note(u_id)
   puts "Enter the title of the note to export to PDF:"
   title = gets.chomp
   if Note.note_pdf(title)
@@ -172,7 +178,7 @@ def note_pdf
   else
     puts "Note not found!"
   end
-  notes_menu
+  notes_menu(u_id)
 end
 menu
 

@@ -33,5 +33,19 @@
     "email": "abc@gmail.com",
     "address": "vidisha",
     "password": "1234"
+  },
+  {
+    "u_name": "animash",
+    "u_id": "10",
+    "email": "animash@gmail.com",
+    "address": "indore",
+    "password": "1234"
+  },
+  {
+    "u_name": "Simi Jain",
+    "u_id": "101",
+    "email": "simi@gmail.com",
+    "address": "indore",
+    "password": "1234"
   }
 ]

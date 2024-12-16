@@ -33,7 +33,7 @@ class Note
   end
 
 
-  def self.update(note_title, new_title, new_content)
+  def self.update(note_title, new_title, new_content ,u_id)
     notes = load_notes
     note = notes.find { |n| n.title == note_title }
 
@@ -41,6 +41,7 @@ class Note
       note.title = new_title
       note.content = new_content
       note.timestamp = Time.now
+      note.u_id = u_id
       save_notes(notes)
       true
     else
@@ -64,6 +65,7 @@ class Note
       pdf.text "Note Title: #{note.title}"
       pdf.text "Timestamp: #{note.timestamp}"
       pdf.text "Content: #{note.content}"
+      pdf.text "User_Id: #{note.u_id}"
     end
   end
 end
