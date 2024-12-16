@@ -19,9 +19,6 @@ class User
 
     users_data = JSON.parse(File.read('users_data.json'))
 
-    #users_data.map do |u_data|
-     # new(u_data['u_name'], u_data['u_id'], u_data['email'], u_data['address'], u_data['password'])
-    #end
     return users_data
   end
 

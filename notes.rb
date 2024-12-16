@@ -13,10 +13,9 @@ class Note
 
   def self.load_notes
     return [] unless File.exist?('note_data.json')
-
-    JSON.parse(File.read('note_data.json')).map do |note_data|
-      new(note_data['title'], note_data['content'], note_data['timestamp'])
-    end
+    
+    note_data = JSON.parse(File.read('note_data.json'))
+    return note_data
   end
 
   def self.save_notes(notes)
@@ -26,7 +25,7 @@ class Note
   def self.create(title, content)
     notes = load_notes
     new_note = Note.new(title, content)
-    notes << new_note
+    notes.push(new_note)
     save_notes(notes)
   end
 
