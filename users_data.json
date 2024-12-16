@@ -12,5 +12,26 @@
     "email": "ram@gmail.com",
     "address": "bhopal",
     "password": "1234"
+  },
+  {
+    "u_name": "naman",
+    "u_id": "23",
+    "email": "naman23@gmail.com",
+    "address": "indore",
+    "password": "1234"
+  },
+  {
+    "u_name": "abc",
+    "u_id": "24",
+    "email": "abc@gmail.com",
+    "address": "vidisha",
+    "password": "1234"
+  },
+  {
+    "u_name": "abcd",
+    "u_id": "111",
+    "email": "abc@gmail.com",
+    "address": "vidisha",
+    "password": "1234"
   }
 ]

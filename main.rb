@@ -60,16 +60,17 @@ def login
   puts "Enter your password : "
   password = gets.chomp
 
-  if User.authenticate(u_name, password)
+  u_id = User.authenticate(u_name, password)
+  if(u_id)
     puts "Login successful!"
-    notes_menu
+    notes_menu(u_id)
   else
     puts "Invalid username or Password. Please try again."
     menu
   end
 end
 
-def notes_menu
+def notes_menu(u_id)
   puts ""
   puts "!!! Menu !!!"
 puts "Please select an option below : "
@@ -83,48 +84,51 @@ puts "6. Exit"
 choice = (gets.chomp).to_i
 case choice
 when 1
-  create_note
+  create_note(u_id)
 when 2
-  view_note
+  view_note(u_id)
 when 3
-  update_note
+  update_note(u_id)
 when 4
-  delete_note
+  delete_note(u_id)
 when 5
-  note_pdf
+  note_pdf(u_id)
 when 6
   menu
 else
   puts "Enter a valid choice : "
-  notes_menu
+  notes_menu(u_id)
 end
 end
 
-def create_note
+def create_note(u_id)
   puts ""
   puts "Enter note title:"
   title = gets.chomp
   puts "Enter note content:"
   content = gets.chomp
 
-  Note.create(title, content)
+  Note.create(title, content , u_id)
   puts "Note created successfully!"
 
-  notes_menu
+  notes_menu(u_id)
 end
 
-def view_note
+def view_note(u_id)
   puts ""
   notes = Note.load_notes
-  if notes.empty?
+  note =notes.find { |n| n.u_id == u_id}
+
+  if note==nil
     puts "No notes available."
   else
-    notes.each { |note| puts "#{note.title} - #{note.timestamp} - #{note.content}"}
+     note.each{ |key| puts "#{key.@title} - #{key.@timestamp} - #{key.@content} - #{key.@u_id}"}
+#    p note
   end
-  notes_menu
+  notes_menu(u_id)
 end
 
-def update_note
+def update_note(u_id)
   puts ""
   puts "Enter the title of the note you want to update:"
   title = gets.chomp

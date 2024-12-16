@@ -3,28 +3,31 @@ require 'time'
 require 'prawn'
 
 class Note
-  attr_accessor :title, :content, :timestamp
+  attr_accessor :title, :content, :timestamp, :u_id
 
-  def initialize(title, content, timestamp = Time.now)
+  def initialize(title, content, timestamp = Time.now,u_id)
     @title = title
     @content = content
     @timestamp = timestamp
+    @u_id = u_id
   end
 
   def self.load_notes
     return [] unless File.exist?('note_data.json')
     
     note_data = JSON.parse(File.read('note_data.json'))
-    return note_data
+    note_data.map do |n_data|
+      new(n_data['title'],n_data['content'],n_data['timestamp'],n_data['u_id'])
+    end
   end
 
   def self.save_notes(notes)
-    File.write('note_data.json', JSON.pretty_generate(notes.map { |note| { 'title' => note.title, 'content' => note.content, 'timestamp' => note.timestamp } }))
+    File.write('note_data.json', JSON.pretty_generate(notes.map { |note| { 'title' => note.title, 'content' => note.content, 'timestamp' => note.timestamp, 'u_id'=>note.u_id } }))
   end
 
-  def self.create(title, content)
+  def self.create(title, content , u_id)
     notes = load_notes
-    new_note = Note.new(title, content)
+    new_note = Note.new(title, content,u_id)
     notes.push(new_note)
     save_notes(notes)
   end

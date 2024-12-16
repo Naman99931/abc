@@ -2,31 +2,13 @@
   {
     "title": null,
     "content": null,
-    "timestamp": null
+    "timestamp": null,
+    "u_id": null
   },
   {
-    "title": "Naman notes",
-    "content": "My Name is naman",
-    "timestamp": "2024-12-16 11:56:57 +0530"
-  },
-  {
-    "title": "First Note",
-    "content": "This is my first note ",
-    "timestamp": "2024-12-16 12:20:01 +0530"
-  },
-  {
-    "title": "ram notes",
-    "content": "My name is ram , i am from bhopal",
-    "timestamp": "2024-12-16 12:52:19 +0530"
-  },
-  {
-    "title": "Fifth note",
-    "content": "this is my fifth note",
-    "timestamp": "2024-12-16 14:36:08 +0530"
-  },
-  {
-    "title": "abc",
-    "content": "abc",
-    "timestamp": "2024-12-16 14:47:45 +0530"
+    "title": "abcd",
+    "content": "abcd",
+    "timestamp": "2024-12-16 16:39:01 +0530",
+    "u_id": "111"
   }
 ]
